@@ -6,13 +6,12 @@ def main():
     fullName = "".join(name)
     fullName = fullName.lower()
     fullName = fullName.lstrip()
-    fullName = fullName.replace(" ", "`")
-    fullName = fullName.replace("-", "`")
+    fullName = fullName.replace(" ", "")
+    fullName = fullName.replace("-", "")
 
     #Convert to numbers, subtract 96 from each, and accumulate
-    x = 0
-    for ch in fullName:
-        x = int(ord(ch)) + x - 96
+    print(fullName)
+    x = sum(int(ord(ch)) - 96 for ch in fullName)
 
     print("The numeric value of your name is {0}.".format(x))
 

@@ -1,4 +1,3 @@
-import math as m
 def main():
     n = eval(input("What number in the Fibonnaci sequence would you like to see?: "))
     x = 1
@@ -8,5 +7,5 @@ def main():
         z = x + y
         x = y
         y = z
-        print(i, ":", y)
+        print(i+1, ":", y)
 main()

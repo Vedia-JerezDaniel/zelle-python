@@ -1,4 +1,4 @@
-import math as m
+import math
 
 def main():
     H, C, O = eval(input("Enter the number of Hydrogen, Carbon, and Oxygen atoms separated by commas: "))

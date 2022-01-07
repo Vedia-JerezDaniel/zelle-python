@@ -6,8 +6,8 @@ def main():
 
     print("\nHere are the Unicode codes:")
 
-    for ch in message:
-        print(ord(ch), end=" ")
+    for i in message:
+        print(ord(i), end=" ")
 
     print()
 
