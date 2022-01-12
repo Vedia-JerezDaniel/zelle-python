@@ -8,6 +8,17 @@ def main():
     monthstr = months[month-1]
     print("The converted date is {1}/{0}/{2}, or {3} {0} {2}".format(day, month, year, monthstr))
 
-
     
+main()
+
+
+# printfile.py
+# Prints a file to the screen.
+def main():
+    fname = input("Enter filename: ")
+    infile = open(fname,"r")
+    for line in infile:
+        print(line,end="")
+    # data = infile.read()
+    # print(data)
 main()

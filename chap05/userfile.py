@@ -10,21 +10,18 @@ def main():
 
     #open the files
     infile = open(infileName, "r")
-    outfile = open(outfileName, "w")
+    with open(outfileName, "w") as outfile:
+        #process each line of the input files
+        for line in infile:
+            #get the first and last names from line
+            first, last = line.split()
+            #create usernames
+            uname = (first[0]+last[:7]).lower()
+            #write it to the output file
+            print(uname, file=outfile)
 
-    #process each line of the input files
-    for line in infile:
-        #get the first and last names from line
-        first, last = line.split()
-        #create usernames
-        uname = (first[0]+last[:7]).lower()
-        #write it to the output file
-        print(uname, file=outfile)
-
-    #close both files
-    infile.close()
-    outfile.close()
-
+        #close both files
+        infile.close()
     print("Usernames have been written to", outfileName)
 
 main()

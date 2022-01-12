@@ -3,19 +3,13 @@ def main():
     fname = input("Enter filename: ")
     infile = open(fname, "r")
     data = infile.read()
-
     #initialize output list
     numWords = []
-
+    letTotal = 0
     #loop for duration of input list split
     for string in data.split():
-        #create a temporary variable to store the first
-        #letter of each word
         x = string[0]
         numWords.append(x)
-
-    letTotal = 0
-    for string in data.split():
         letTotal = len(string) + letTotal
         wordAvg = letTotal / (len(numWords))
     #conjoin listed output strings and print

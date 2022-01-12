@@ -1,14 +1,9 @@
 #word count
-def main():
+def counter10():
     text = input("Input: \n")
-
-    #initialize output list
     numWords = []
-
     #loop for duration of input list split
     for string in text.split():
-        #create a temporary variable to store the first
-        #letter of each word
         x = string[0]
         numWords.append(x)
 
@@ -16,7 +11,7 @@ def main():
     for string in text.split():
         letTotal = len(string) + letTotal
         wordAvg = letTotal / (len(numWords))
-    #conjoin listed output strings and print
-    print(wordAvg)
+    print(letTotal)    
+    print("The word average is: ", wordAvg)
 
-main()
+counter10()
