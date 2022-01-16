@@ -1,13 +1,7 @@
 def sumN(n):
-    fact = 1
-    for factor in range(n,1,-1):
-        fact = fact + factor
-    return fact
+    return 1 + sum(range(n,1,-1))
 def sumNCubes(n):
-    cube = 1
-    for factor in range(n,1,-1):
-        cube = cube + factor ** 3
-    return cube
+    return 1 + sum(f**3 for f in range(n,1,-1))
 def main():
     n = eval(input("Enter a value: "))
     N = sumN(n)

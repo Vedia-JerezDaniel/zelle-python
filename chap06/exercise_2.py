@@ -1,4 +1,3 @@
-
 def ants():
     num = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
     rhyme = ['suck his thumb','tie his shoe','take a pee', 'shut the door','call the hive','pick up sticks', 'look to heaven','make a date', 'get outta line', 'sing it again']
@@ -13,6 +12,6 @@ def ants():
         print("Of the rain.")
         print("Boom! Boom! Boom!")
         print()
-def main():
-    ants()
-main()
+
+ants()
+
