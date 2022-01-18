@@ -5,7 +5,7 @@ def fibonnaci(n):
         z = x + y
         x = y
         y = z
-        print(x)
+        print(z)
     return y
 
 def main():

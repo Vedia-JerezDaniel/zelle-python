@@ -9,3 +9,8 @@ def test():
     print(amounts)
 
 test()
+
+    """ Instead what has happened is that new values
+were created, and the assignments into the list caused it to refer to the new values. The old values
+will actually get cleaned up when Python does garbage collection.
+    """

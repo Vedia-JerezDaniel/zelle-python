@@ -5,14 +5,13 @@ def square(x):
     return x * x
 
 def distance(p1, p2):
-    dist = math.sqrt(square(p2.getX() - p1.getX())
+    return math.sqrt(square(p2.getX() - p1.getX())
             + square(p2.getY() - p1.getY()))
-    return dist
+    
 import math as m
 def triArea(a, b, c):
     s = (a + b + c) / 2
-    A = m.sqrt(s * (s-a) * (s-b) * (s-c))
-    return A
+    return m.sqrt(s * (s-a) * (s-b) * (s-c))
 
 def main():
     win = GraphWin("Draw a Triangle")

@@ -8,7 +8,6 @@ def squareEach(nums):
         nums[x] = nums[x] ** 2
     return(nums)
 
-
 def sumList(nums):
     y = 0
     for x in range (len(nums)):
@@ -17,16 +16,10 @@ def sumList(nums):
 
 def main():
     fname = input("Enter filename: ")
-    infile = open(fname, "r")
-
-    lines = []
-    for line in infile.readlines():
-        lines.append(line)
-
-    x = toNumbers(lines)
-    y = squareEach(x)
-    z = sumList(y)
-    print(z)
-
-    infile.close()
+    with open(fname, "r") as infile:
+        lines = list(infile.readlines())
+        x = toNumbers(lines)
+        y = squareEach(x)
+        z = sumList(y)
+        print(z)
 main()

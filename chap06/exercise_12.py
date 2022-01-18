@@ -3,6 +3,7 @@ def sumList(nums):
     for x in range (len(nums)):
         y = nums[x] + y
     return(y)
+
 def test():
     list = [1,2,3,4,5]
     z = sumList(list)
