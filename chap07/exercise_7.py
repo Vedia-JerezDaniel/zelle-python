@@ -1,8 +1,6 @@
 def main():
-    #get time in hours and minutes and convert into float of hours
-        #time = input("Please enter the time eg. (hh:mm): ")
-    starTime = '9:15'
-    endTime = '23:15'
+    starTime = input('Enter start time >>')
+    endTime = input('Enter end time >>')
 
     starMin = eval(starTime[-2:len(starTime)])
     starHr = eval(starTime[:len(starTime)-3])
@@ -19,4 +17,5 @@ def main():
         x = endTime - 21
         bill = (time - x) * 2.50 + (x * 1.75)
     print("${0}".format(round(bill, 2)))
+    
 main()

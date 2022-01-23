@@ -1,5 +1,5 @@
 from graphics import *
-import math as m
+import math
 
 def main():
     #Create a square window and set coordinates -10,-10 to 10,10
@@ -22,7 +22,7 @@ def main():
         print("The line does not intersect.")
     else:
         #Compute x
-        x = m.sqrt(r**2 - y**2)
+        x = math.sqrt(r**2 - y**2)
 
         #Print the two x values of intersection textually
         print(-x, x)

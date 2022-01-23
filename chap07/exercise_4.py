@@ -7,8 +7,6 @@ def main():
         print('Sophomore')
     elif 16 <= x <26:
         print('Junior')
-    elif x >= 26:
-        print('Senior')
     else:
-        print("Please print a valid positive number ")
+        print('Senior')
 main()

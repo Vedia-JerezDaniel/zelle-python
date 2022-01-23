@@ -2,16 +2,10 @@ def leapYear(year):
     if (year % 4) != 0:
         return False
     else:
-        if (year % 100) == 0:
-            if (year % 400) ==0:
-                return True
-            else:
-                return False
-        else:
-            return True
+        return (year % 100) == 0 and (year % 400) ==0 or year % 100 != 0
 
 def main():
-    dateStr = '6/29/1100'
+    dateStr = input("Enter a date as '6/29/1100': ")
 
     monthStr, dayStr, yearStr = dateStr.split("/")
     month = int(monthStr)
@@ -20,19 +14,16 @@ def main():
 
     if month > 12 or day > 31:
         print("This date is invalid.")
-    else:
-        if day <= 28:
-            print("This date is valid.")
-        elif month == 2 and day == 29:
-            if leapYear(year) == False:
-                print("This date is invalid.")
-            else:
-                print("This date is valid.")
-        elif day == 31:
-            if month == 2 or 4 or 6 or 11:
-                print("This date is invalid")
-            else:
-                print("This date is valid")
+    elif day <= 28:
+        print("This date is valid.")
+    elif month == 2 and day == 29:
+        if leapYear(year) == False:
+            print("This date is invalid.")
         else:
-            print("The date is valid.")
+            print("This date is valid.")
+    elif month in {1, 3, 5, 7, 8, 10, 12} and day == 31:
+        print("This date is valid")
+    else:
+        print("The date is invalid.")
+        
 main()

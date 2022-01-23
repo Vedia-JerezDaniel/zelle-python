@@ -8,9 +8,7 @@ def main():
         print('C')
     elif x == 2:
         print('D')
-    elif x == 1:
-        print('F')
-    elif x == 0:
+    elif x in [1, 0]:
         print('F')
     else:
         print('Please enter an integer between 0 and 5')
