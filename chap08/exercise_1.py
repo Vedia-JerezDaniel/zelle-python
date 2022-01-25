@@ -1,4 +1,4 @@
-import math as m
+import math
 
 def main():
     n = eval(input("What number in the Fibonnaci sequence would you like to see?: "))
@@ -7,10 +7,11 @@ def main():
     y = 0
 
     while count < n:
-        count = count + 1
+        count += 1
         z = x + y
         x = y
         y = z
-    print(z)
+        print(y)
+    print('{} is the last Fibonnaci number'.format(z))
 
 main()

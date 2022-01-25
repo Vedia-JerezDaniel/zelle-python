@@ -8,13 +8,13 @@ def main():
     p = principal
     interest = 0
     years = 0
-    
-    while principal > .5 * p:
-        years = years + 1
-        interest = p * apr
-        p = p + interest
 
-    print(p)
-    print(years)
+    while principal > .5 * p:
+        years += 1
+        interest = p * apr
+        p += interest
+
+    print('Final amount plus interests: {:.1f}'.format(p))
+    print('Number of years to double investment: {:d}'.format(years))
 
 main()

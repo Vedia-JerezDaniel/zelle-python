@@ -30,10 +30,9 @@ def graphWin(Title):
         click = win.getMouse()
         if ((-9 <= click.getX() <= -7) and (-9 <= click.getY() <= -8)):
             break
-        else:
-            #Store user points in an appended list
-            allPoints.append(click)
-            click.draw(win)
+        #Store user points in an appended list
+        allPoints.append(click)
+        click.draw(win)
     return allPoints, win
 
 def average(allPoints):
@@ -47,15 +46,15 @@ def average(allPoints):
     for i in allPoints:
         x = i.getX()
         y = i.getY()
-        sumX = sumX + x
-        sumY = sumY + y
-        count = count + 1
+        sumX += x
+        sumY += y
+        count += 1
         xy = x * y
-        sumXiYi = sumXiYi + xy
+        sumXiYi += xy
         SqX = x * x
-        sumSqXi = sumSqXi + SqX
+        sumSqXi += SqX
         SqY = y * y
-        sumSqYi = sumSqYi + SqY
+        sumSqYi += SqY
 
     a = ((sumY * sumSqXi) - (sumX * sumXiYi)) / (count * (sumSqXi) - sumX ** 2)
     b = ((count * sumXiYi) - (sumX * sumY)) / (count * (sumSqXi) - sumX ** 2)
