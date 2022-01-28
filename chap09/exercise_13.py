@@ -1,6 +1,6 @@
 #One-dimensional random walk
-from random import random
-import math as m
+import random
+import math
 
 def main():
     printIntro()
@@ -18,32 +18,30 @@ def printIntro():
 def avgTravel(n):
     totBlocks = 0
     avgDist = 0
-    for i in range (1000):
+    for _ in range (n):
         avgBlocks = simNBlocks(n)
-        totBlocks = totBlocks + avgBlocks
-    if totBlocks == 0:
-        avgDist = 0
-    else:
-        avgDist = totBlocks / 1000
+        totBlocks += avgBlocks
+    avgDist = 0 if totBlocks == 0 else totBlocks / n
     return avgDist
 
 def simNBlocks(n):
     blocksX = blocksY = 0
-    for i in range (n):
-        x = 4 * random()
+    for _ in range (n):
+        x = 4 * random.random()
         if 0 <= x < 1:
-            blocksX = blocksX + 1
+            blocksX +=  1
         elif 1 <= x < 2:
-            blocksX = blocksX - 1
+            blocksX -= 1
         elif 2 <= x < 3:
-            blocksY = blocksY + 1
+            blocksY +=  1
         else:
-            blocksY = blocksY - 1
+            blocksY -= 1
 
-    avgBlocks = m.sqrt((blocksX ** 2 + blocksY ** 2))
-    return avgBlocks
+    return math.sqrt((blocksX ** 2 + blocksY ** 2))
 
 def printSummary(avgDist):
     print("The object will travel an average of {0:0.2f} blocks based on the simulation.".format(avgDist))
 
 if __name__ == '__main__': main()
+
+main()

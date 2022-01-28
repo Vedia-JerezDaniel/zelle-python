@@ -22,10 +22,10 @@ def simDarts(n):
     win.setCoords(-1, -1, 1, 1)
 
     hits = 0
-    for i in range (n):
+    for _ in range (n):
         point = getDart()
         if hitBoard(point) is True:
-            hits = hits + 1
+            hits += 1
         else:
             hits = hits
     win.close()
@@ -34,20 +34,15 @@ def simDarts(n):
 def getDart():
     x = 2 * random() - 1
     y = 2 * random() - 1
-    point = Point(x, y)
-    return point
+    return Point(x, y)
 
 def hitBoard(point):
     x = point.getX()
     y = point.getY()
-    if (x ** 2 + y ** 2) <= 1:
-        return True
-    else:
-        return False
+    return (x ** 2 + y ** 2) <= 1
 
 def getPi(hits, n):
-    pi = 4 * (hits/n)
-    return pi
+    return 4 * (hits/n)
 
 def printSummary(pi):
     print("The approximate value of pi based on the simulation is {}.".format(pi))

@@ -34,7 +34,6 @@ def printIntro():
 
 
 def getInputs():
-    #returns the three simulation parameters
     probA = eval(input("What is the percent prob. player A wins a volley? "))
     probA = probA / 100
     probB = 1 - probA
@@ -42,9 +41,8 @@ def getInputs():
     return probA, probB, n
 
 def simNMatches(n, probA, probB):
-    #best of 5 sets
     winsA = winsB = 0
-    for i in range(n):
+    for _ in range(n):
         matchA, matchB = simOneMatch(probA, probB)
         if matchA > matchB:
             winsA = winsA + 1
@@ -56,66 +54,48 @@ def simOneMatch(probA, probB):
     matchA = matchB = 0
     while not matchOver(matchA, matchB):
         setA, setB = simOneSet(probA, probB)
-        if setA > setB:
-            matchA = matchA + 1
-        else:
-            matchB = matchB + 1
+        if setA > setB:    matchA += 1
+        else:  matchB += 1
     return matchA, matchB
 
 def matchOver(a, b):
-    if a > 3 or b > 3:
-        return True
-    else:
-        return False
+    return a > 3 or b > 3
 
 def simOneSet(probA, probB):
     scoreA, scoreB = simOneGame(probA, probB)
     setA = setB = 0
     while not setOver(setA, setB):
-        if scoreA > scoreB:
-            setA = setA + 1
-        else:
-            setB = setB + 1
+        if scoreA > scoreB:     setA +=  1
+        else:       setB +=  1
     return setA, setB
 
 def setOver(a, b):
-    #first to 6, win by 2
-    #if 6, 5, play again
-        #if 6, 6, tie break game
-    if a == 7 or b == 7:
-        return True
-    elif a >= 6 or b >= 6:
-        if abs(a-b) >=2:
-            return True
-        else:
-            return False
-    else:
-        return False
+    return (
+        a != 7
+        and b != 7
+        and (a >= 6 or b >= 6)
+        and abs(a - b) >= 2
+        or a == 7
+        or b == 7
+    )
 
 def simOneGame(probA, probB):
     scoreA = scoreB = 0
     while not gameOver(scoreA, scoreB):
         if random() < probA:
-            scoreA = scoreA + 1
-        else:
-            scoreB = scoreB + 1
+            scoreA += 1
+        else:         scoreB +=  1
     return scoreA, scoreB
 
 
 def gameOver(a, b):
-    #4 or more points wins by 2
-    if a >= 4 or b >= 4:
-        if abs(a-b) >=2:
-            return True
-        else:
-            return False
-    else:
-        return False
+    return (a >= 4 or b >= 4) and abs(a-b) >=2
 
 def printSummary(winsA, winsB, n):
-    # Prints a summary of wins for each players
     print("\nGames simulated: ", n)
     print("Wins for A: {0} ({1:0.1%})".format(winsA, winsA/n))
     print("Wins for B: {0} ({1:0.1%})".format(winsB, winsB/n))
 
 if __name__ == '__main__': main()
+
+main()

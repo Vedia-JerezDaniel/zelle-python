@@ -1,9 +1,9 @@
 #One-dimensional random walk
-from random import random
+import random
 
 def main():
     printIntro()
-    n = eval(input("How many steps do you intend to take per trip? "))
+    n = eval(input("How many steps do you intend to take? "))
     avgTravel = avgSteps(n)
     print("The object will travel an average of", avgTravel, "based on the simulation.")
 
@@ -16,25 +16,21 @@ def printIntro():
 
 def avgSteps(n):
     totTravel = 0
-    for i in range (1000):
+    for _ in range (n):
         steps = simNSteps(n)
-        totTravel = totTravel + steps
-    if totTravel == 0:
-        avgTravel = 0
-    else:
-        avgTravel = totTravel / 1000
-    return avgTravel
+        totTravel += steps
+    return 0 if totTravel == 0 else totTravel / n
 
 def simNSteps(n):
     steps = 0
-    for i in range (n):
-        x = 2 * random() - 1
-        if x > 0:
-            steps = steps + 1
-        elif x < 0:
-            steps = steps - 1
-        else:
-            steps = steps
+    for _ in range (n):
+        x = random.randint(0,1)
+        if x == 1:      steps += 1
+        elif x == 0:    steps -= 1
+        else:           steps = steps
     return steps
 
+
 if __name__ == '__main__': main()
+
+main()

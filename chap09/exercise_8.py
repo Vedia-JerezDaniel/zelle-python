@@ -26,57 +26,40 @@ def printIntro():
     print()
 
 def simNHands(n):
-    busts = 0
-    for i in range(n):
-        if not simOneHand():
-            busts = busts + 1
-    return busts
+    return sum(not simOneHand() for _ in range(n))
 
 def simOneHand():
     x = simOneCard()
     y = simOneCard()
     hand = x + y
-
     while hand < 17:
         if hasAce(x) is True:
             if hand <= 10:
                 x = 11
-                hand = hand + 10
-            else:
-                x = 1
-
-
+                hand += 10
+            else:   x = 1
         if hasAce(y) is True:
             if hand <= 10:
                 y = 11
-                hand = hand + 10
-            else:
-                y = 1
+                hand += 10
+            else:   y = 1
         z = simOneCard()
         hand = hand + z
-
-    if hand > 21:
-        #bust
-        return False
-    else:
-        return True
+    return hand <= 21
 
 def simOneCard():
     x = randrange(1, 13)
-    if x == 11 or x == 12 or x == 13:
+    if x in [11, 12, 13]:
         x = 10
-        return x
-    else:
-        return x
+    return x
 
 def hasAce(x):
-    if x == 1:
-        return True
-    else:
-        return False
+    return x == 1
 
 def printSummary(busts, n):
     print()
     print("The dealer has a {0:0.1%} chance of busting.".format(busts/n))
 
 if __name__ == '__main__': main()
+
+main()

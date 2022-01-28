@@ -18,23 +18,21 @@ def printIntro():
 def simNCraps(n):
     wins = 0
     losses = 0
-    for i in range(n):
+    for _ in range(n):
         if simOneCraps() is True:
-            wins = wins + 1
-        else:
-            losses = losses + 1
+            wins +=  1
+        else:     losses += 1
     return wins, losses
-
 
 def simOneCraps():
     x = randrange(2,12)
-    if x == 2 or x == 3 or x == 12:
+    if x in [2, 3, 12]:
         return False
-    elif x == 7 or x == 11:
+    elif x in [7, 11]:
         return True
     else:
-        y = 0
-        while x != y and x != 7:
+        y = 1
+        while x not in [y, 7]:
             y = randrange(2, 12)
             if y == 7:
                 return False
@@ -48,3 +46,5 @@ def printSummary(wins, losses, n):
 
 
 if __name__ == '__main__': main()
+
+main()
