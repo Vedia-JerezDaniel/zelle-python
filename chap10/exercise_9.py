@@ -1,4 +1,4 @@
-from sphere import Sphere
+from sphere import *
 
 def main():
     r = eval(input("What is the radius of your sphere?  "))

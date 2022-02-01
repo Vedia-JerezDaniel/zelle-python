@@ -33,18 +33,17 @@ class Student:
             gradePoint = 1
         else:
             gradePoint = 0
-
         self.hours = float(self.hours) + float(credits)
         self.qpoints = self.qpoints + (gradePoint * credits)
 
 def makeStudent(infoStr):
     #inforStr is a tap-separated line: name hours getQPoints
     #returns a corresponding Student object
-    name, hours, qpoints = infoStr.split("\t")
+    name, hours, qpoints = infoStr.split(",")
     return Student(name, hours, qpoints)
 
 def main():
-    new = makeStudent("Smith, Frank	0	0")
+    new = makeStudent("Smith; Frank,30,210")
     x = input("Input gradepoint OR letter grade. ")
     y = eval(input("Input credit hours. "))
     if x.isdigit() == True:

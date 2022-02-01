@@ -38,15 +38,17 @@ class Button:
 
     def activate(self):
         "Sets this button to 'active'."
-        self.label.setFill('black')
-        self.rect.setWidth(2)
-        self.active = True
+        self._extracted_from_deactivate_3('black', 2, True)
 
     def deactivate(self):
         "sets this button to 'inactive'."
-        self.label.setFill('darkgrey')
-        self.rect.setWidth(1)
-        self.active = False
+        self._extracted_from_deactivate_3('darkgrey', 1, False)
+
+    # TODO Rename this here and in `activate` and `deactivate`
+    def _extracted_from_deactivate_3(self, arg0, arg1, arg2):
+        self.label.setFill(arg0)
+        self.rect.setWidth(arg1)
+        self.active = arg2
 
     def update(self, win, label):
         self.label.undraw()

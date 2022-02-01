@@ -1,5 +1,5 @@
 #sphere.py
-from math import pi
+import math
 
 class Sphere:
     """This class represents a geometric solid sphere.
@@ -13,9 +13,9 @@ class Sphere:
         return self.radius
 
     def surfaceArea(self):
-        self.surfaceArea = 4 * pi * (self.radius * self.radius)
+        self.surfaceArea = 4 * math.pi * (self.radius * self.radius)
         return self.surfaceArea
 
     def volume(self):
-        self.volume = 4/3 * pi * (self.radius ** 3)
+        self.volume = 4/3 * math.pi * (self.radius ** 3)
         return self.volume

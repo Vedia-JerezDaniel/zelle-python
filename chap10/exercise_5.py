@@ -23,14 +23,15 @@ class Student:
 def makeStudent(infoStr):
     #inforStr is a tap-separated line: name hours getQPoints
     #returns a corresponding Student object
-    name, hours, qpoints = infoStr.split("\t")
+    name, hours, qpoints = infoStr.split(",")
     return Student(name, hours, qpoints)
 
 def main():
-    new = makeStudent("Smith, Frank	0	0")
+    new = makeStudent("Adams; Henry, 127, 228")
     x, y = eval(input("Input gradepoint and credits, separated by a comma: "))
     new.addGrade(x, y)
     print(new.getHours(), new.getQPoints())
     print(new.gpa())
+
 
 main()

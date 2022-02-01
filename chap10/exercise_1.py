@@ -8,11 +8,12 @@ def getInputs():
         "Enter the time interval between position calculations: "))
     return a, v, h, t
 
+
 def main():
     angle, vel, h0, time = getInputs()
     cball = Projectile(angle, vel, h0)
     maxY = 0
-    while cball.getY() >= 0:
+    while cball.getY() > 20:
         cball.update(time)
         if cball.getY() > maxY:
             maxY = cball.getY()

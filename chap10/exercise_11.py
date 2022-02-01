@@ -3,7 +3,7 @@ from random import random
 
 def main():
     n = 20
-    for i in range (n):
+    for _ in range (n):
         x = int(random() * 13) + 1
         y = int(random() * 4)
         suit = ['d', 's', 'h', 'c']

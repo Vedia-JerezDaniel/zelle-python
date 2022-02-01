@@ -27,8 +27,7 @@ class CButton:
         "Returns true if button active and p is inside"
         return (self.active and
                 (self.centX - p.getX()) ** 2 +
-                (self.centY - p.getY()) ** 2
-                <= self.radius ** 2)
+                (self.centY - p.getY()) ** 2 <= self.radius ** 2)
 
     def getLabel(self):
         "Returns the label string of this button."
@@ -36,15 +35,17 @@ class CButton:
 
     def activate(self):
         "Sets this button to 'active'."
-        self.label.setFill('black')
-        self.circ.setWidth(2)
-        self.active = True
+        self._extracted_from_deactivate_3('black', 2, True)
 
     def deactivate(self):
         "sets this button to 'inactive'."
-        self.label.setFill('darkgrey')
-        self.circ.setWidth(1)
-        self.active = False
+        self._extracted_from_deactivate_3('darkgrey', 1, False)
+
+    # TODO Rename this here and in `activate` and `deactivate`
+    def _extracted_from_deactivate_3(self, arg0, arg1, arg2):
+        self.label.setFill(arg0)
+        self.circ.setWidth(arg1)
+        self.active = arg2
 
     def update(self, win, label):
         self.label.undraw()

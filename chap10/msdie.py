@@ -2,12 +2,12 @@
 #   Class definition for an n-sided die.
 from random import randrange
 
-class Person:
-    def __init__(self, name, age):
-        this.name = name
-        this.age = age
+# class Person:  # also caled constructor
+#     def __init__(self, name, age):
+#         this.name = name
+#         this.age = age
 
-class MSDie:
+class MSDie:  # also caled constructor
     def __init__(self, sides):
         self.sides = sides
         self.value = 1
@@ -28,3 +28,7 @@ def main():
     print(die1.getValue())
 
 main()
+
+die1 = MSDie(10)
+die1.roll()
+die1.getValue()

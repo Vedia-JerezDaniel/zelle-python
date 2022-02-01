@@ -15,10 +15,7 @@ class PlayingCard:
         return self.suit
 
     def BJValue(self):
-        if 10 <= self.rank <= 13:
-            self.rank = 10
-        else:
-            self.rank = self.rank
+        self.rank = 10 if 10 <= self.rank <= 13 else self.rank
         return self.rank
 
     def __str__(self):
