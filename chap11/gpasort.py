@@ -1,19 +1,14 @@
-from gpa import Student
+from gpa import *
 
 def readStudents(filename):
-    infile = open(filename, 'r')
-    students = []
-    for line in infile:
-        students.append(makeStudent(line))
-    infile.close()
+    with open(filename, 'r') as infile:
+        students = [makeStudent(line) for line in infile]
     return students
 
 def writeStudents(students, filename):
-    #students is a list of Student object
-    outfile = open(filename, 'w')
-    for s in students:
-        print("{0}\t{1}\t{2}".format(s.getName(), s.getHours(), s.getQPoints()), file = outfile)
-    outfile.close()
+    with open(filename, 'w') as outfile:
+        for s in students:
+            print("{0}\t{1}\t{2}".format(s.getName(), s.getHours(), s.getQPoints()), file = outfile)
 
 def main():
     print("This program sorts student grade information by GPA")

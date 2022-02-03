@@ -39,10 +39,10 @@ def main():
         click = win.getMouse()
         if ((-9 <= click.getX() <= -7) and (-9 <= click.getY() <= -8)):
             break
-        else:
-            #Store user points in an appended list
-            bestfit.addPoint(click)
-            click.draw(win)
-            bestfit.unDraw()
-            bestfit.drawRegressionLine(win)
+        #Store user points in an appended list
+        bestfit.addPoint(click)
+        click.draw(win)
+        bestfit.unDraw()
+        bestfit.drawRegressionLine(win)
+        
 if __name__ == '__main__': main()

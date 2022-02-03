@@ -3,7 +3,6 @@ from math import sqrt
 
 def getNumbers():
     nums = []
-
     #sentinel loop to get numbers
     xStr = input("Enter a number (<Enter> to Quit) >>")
     while xStr != "":
@@ -15,7 +14,7 @@ def getNumbers():
 def mean(nums):
     sum = 0.0
     for num in nums: 
-        sum = sum + num
+        sum += num
     return sum / len(nums)
 
 def stdDev(nums):
@@ -23,7 +22,7 @@ def stdDev(nums):
     sumDevSq = 0.0
     for num in nums:
         dev = xbar - num
-        sumDevSq = sumDevSq + dev * dev
+        sumDevSq += dev * dev
     return sqrt(sumDevSq/(len(nums) - 1))
 
 def meanStdDev(nums):
@@ -31,16 +30,15 @@ def meanStdDev(nums):
     std = stdDev(nums)
     return xbar, std
 
-
 def median(nums):
     nums.sort()
     size = len(nums)
     midPos = size // 2
-    if size % 2 == 0:
-        median = (nums[midPos] + nums [midPos - 1]) / 2
-    else:
-        median = nums[midPos]
-    return median
+    return (
+        (nums[midPos] + nums[midPos - 1]) / 2
+        if size % 2 == 0
+        else nums[midPos]
+    )
 
 def main():
     num = (input("Enter a series of numbers, separated by commas: "))
