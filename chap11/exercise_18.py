@@ -3,23 +3,19 @@ from random import random
 
 def avgSteps(n):
     totTravel = 0
-    for i in range (1000):
+    for _ in range (10):
         steps = simNSteps(n)
-        totTravel = totTravel + steps
-    if totTravel == 0:
-        avgTravel = 0
-    else:
-        avgTravel = totTravel / 1000
-    return avgTravel
+        totTravel += steps
+    return 0 if totTravel == 0 else totTravel / 10
 
 def simNSteps(n):
     steps = 0
-    for i in range (n):
+    for _ in range (n):
         x = 2 * random() - 1
         if x > 0:
-            steps = steps + 1
+            steps += 1
         elif x < 0:
-            steps = steps - 1
+            steps -= 1
         else:
             steps = steps
     return steps
@@ -33,23 +29,21 @@ def printIntro():
 def main():
     printIntro()
     n = eval(input("How many squares are on the sidewalk?"))
-    squares = []
-    for i in range(n + 1):
-        squares.append(0)
-    
+    squares = [0 for _ in range(n + 1)]
     steps = int(n / 2)
     while 0 < steps < n:
         x = 2 * random() - 1
         if x > 0:
-            steps = steps + 1
+            steps += 1
             squares[steps] = squares[steps] + 1
         elif x < 0:
-            steps = steps - 1
+            steps -= 1
             squares[steps] = squares[steps] + 1
         else:
             steps = steps
-    for i in range(len(squares)):
+    for i in range(len(squares)-1):
         print("Square {0}: {1}".format(i + 1,squares[i]))
 
-if __name__ == '__main__': main()
+
+main()
 

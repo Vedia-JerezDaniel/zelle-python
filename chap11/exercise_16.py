@@ -10,25 +10,25 @@ class StatSet:
     def mean(self):
         sum = 0.0
         for num in self.stats: 
-            sum = sum + num
+            sum += num
         return sum / self.count()
 
     def median(self):
         self.stats.sort()
         size = len(self.stats)
         midPos = size // 2
-        if size % 2 == 0:
-            median = (self.stats[midPos] + self.stats[midPos - 1]) / 2
-        else:
-            median = self.stats[midPos]
-        return median
+        return (
+            (self.stats[midPos] + self.stats[midPos - 1]) / 2
+            if size % 2 == 0
+            else self.stats[midPos]
+        )
 
     def stdDev(self):
         xbar = self.mean()
         sumDevSq = 0.0
         for num in self.stats:
             dev = xbar - num
-            sumDevSq = sumDevSq + dev * dev
+            sumDevSq += dev * dev
         return sqrt(sumDevSq/(len(self.stats) - 1))
 
     def count(self):
@@ -44,13 +44,14 @@ class StatSet:
 
 def main():
     data = StatSet()
-    for i in range(12):
+    for i in range(45):
         data.addNumber(i * 3/2)
-    print(data.count())
-    print(data.mean())
-    print(data.median())
-    print(data.stdDev())
-    print(data.min())
-    print(data.max())
+    print('This is the length of data points: {}'.format(data.count()))
+    print('This is the mean of data : {}'.format(data.mean()))
+    print('This is the median of data : {}'.format(data.median()))
+    print('This is the Standard deviation of data : {:1f}'.format(data.stdDev()))
+    print('This is the minimum point of data points: {}'.format(data.min()))
+    print('This is the max point of data points: {}'.format(data.max()))
+    
 main()
     
