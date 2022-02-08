@@ -4,6 +4,7 @@ class ATMApp:
     """Class ATM calls account information from a JSON file and manipulates it
     per commands given through an interface class. The JSON file is then updated
     to reflect transactional commands"""
+    
     def __init__(self, accountfile, interface):
         """Creates a list of Users labeled self.users with which to manage account 
         information. Users can be sorted by userid when given the proper key."""
@@ -55,6 +56,7 @@ class ATMApp:
 
     def getUser(self, userid):
         """Returns user object with given userid"""
+        
         for user in self.users:
             if userid == user.getID():
                 return user
@@ -71,8 +73,7 @@ class ATMApp:
         recipient.exchangeCash(value, type_recipient)
 
     def __updateAccounts(self):
-        data = {}
-        data['users'] = {}
+        data = {'users': {}}
         for user in self.users:
             json_str = (vars(user))
             userid = user.getID()
@@ -81,11 +82,10 @@ class ATMApp:
             json.dump(data, f, indent=4)
 
     def verify(self, userid, pin):
-        for user in self.users:
-            if (user.getID() == userid) and (user.getPIN() == pin):
-                return True
-        else:
-            return False
+        return any(
+            (user.getID() == userid) and (user.getPIN() == pin)
+            for user in self.users
+        )
 
 class User:
     def __init__(self, userid, pin, checking, savings, name):
@@ -102,7 +102,6 @@ class User:
     
     def exchangeCash(self, value, inaccount):
         """Used to deposit or withdraw money from checking or savings accounts."""
-
         if inaccount[0] == "C":
             self.checking = round(self.checking + value, 2)
         else:

@@ -10,7 +10,7 @@
 #                   Entry["User ID", "Pin"]
 #     Initialize new screen to display possible functions
 #               Screen 2
-#                   Buttons["Check Balance", "Withdraw Cash", "Transfer Money", "Exit", "Quick Cash $100"]
+#                   Buttons["Check Balance", "Withdraw Cash", "transacsfer Money", "Exit", "Quick Cash $100"]
 #                   Txt["Checking", "Savings"]
 #                       format left and right aligned label and $
 #                       use template variable for formatting
@@ -29,52 +29,48 @@ class TextInterface:
     def getUserInput(self):
         #get UserID and Pin
         a = input("Username >> ")
-        b = input("Pin >> ")
+        b = input("Enter PIN >> ")
         return a, b
 
-    def chooseTransaction(self):
+    def choosetransacsaction(self):
         #give user choice of "Check Balance", 
-        # "Withdraw Cash", "Transfer Money", "Exit", "Quick Cash $100"
+        # "Withdraw Cash", "transacsfer Money", "Exit", "Quick Cash $100"
         #Display user balance
-        
-        tran = "xxx"
-        while tran[0] != ("C" or "W" or "T" or "S" or "E" or "Q"):
-            tran = input('Please select a transaction from the approved list. "Check Balance", \n "Withdraw/Deposit Cash", "Transfer Money", "Send Money", "Exit", "Quick Cash $100 >> ')
-            if tran[0] != "E":                    
-                return tran
-            else:
+
+        transac = "xxx"
+        while transac[0] != ("C" or "W" or "T" or "S" or "E" or "Q"):
+            transac = input('Please select a transacsaction from the approved list. "Check Balance", \n "Withdraw/Deposit Cash", "transfer Money", "Send Money", "Exit", "Quick Cash $100 >> ')
+            if transac[0] == "E":
                 self.active = False
-                return tran
+            return transac
             
     def displayBalance(self, checking, savings):
-        #display savings and checking
         print("Checking: {0}    Savings: {1}".format(checking, savings))
 
     def withdrawCash(self):
         print("This function will withdraw or deposit cash.")
         value = eval(input("How much should we deposit/withdraw? Enter negative value to withdraw. >> "))
         account = input("Checking or Savings? >> ")
-        print("Your transaction is complete.\n")
+        print("Your transacsaction is complete.\n")
         return value, account
 
-    def getTransferInfo(self):
+    def gettransacsferInfo(self):
         outaccount = input("Select account to withdraw money from: >> ")
         inaccount = input("Select account to deposit money in: >> ")
         value = eval(input("How much would you like to move?"))
-        print("Your transaction is complete.\n")
+        print("Your transacsaction is complete.\n")
         return inaccount, outaccount, value
 
     def getSendInfo(self):
-        recipient = input("Recipient userid")
+        recipient = input("Recipient User id")
         type_sender = input("Sender: Checking or Savings?  >> ")
         type_recipient = input("Recipient: Checking or Savings?  >> ")
         value = eval(input("How much to send? >> "))
-        print("Your transaction is complete.\n")
+        print("Your transacsaction is complete.\n")
         return recipient, type_sender, type_recipient, value
 
     def close(self):
-        if self.active == False:
-            print("\nPlease come again.")
-            return True
-        else:
+        if self.active != False:
             return False
+        print("\nPlease come again.")
+        return True

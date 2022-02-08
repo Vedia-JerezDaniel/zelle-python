@@ -1,16 +1,14 @@
-
 import json as json
 
 class ConferenceManager:
     def __init__(self):
         self.attendees = []
-        filename = open('conferenceAttendees.json', 'r')
-        json_string = filename.read()        
-        self.json_object = json.loads(json_string)
-        for k in self.json_object.keys():
-            a = Attendee(self.json_object[k]["name"], self.json_object[k]["company"], self.json_object[k]["state"], k)
-            self.attendees.append(a)
-        filename.close()
+        with open('chap12/conferenceAttendees.json', 'r') as filename:
+            json_string = filename.read()
+            self.json_object = json.loads(json_string)
+            for k in self.json_object.keys():
+                a = Attendee(self.json_object[k]["name"], self.json_object[k]["company"], self.json_object[k]["state"], k)
+                self.attendees.append(a)
         
     def getJSON(self):
         return self.json_object
@@ -21,11 +19,9 @@ class ConferenceManager:
                 return attendee
 
     def findByState(self, state):
-        results = []
-        for attendee in self.attendees:
-            if attendee.getState() == state:   
-                results.append(attendee)
-        return results
+        return [
+            attendee for attendee in self.attendees if attendee.getState() == state
+        ]
         
     def makeAttendee(self, name, company, state, email):
         attendee = Attendee(name, company, state, email)
@@ -37,10 +33,8 @@ class ConferenceManager:
                 attendee.pop(attendee)
 
     def updateConference(self):
-        data = []
-        for attendee in self.attendees:
-                data.append(vars(attendee))
-        with open('conferencedAttendees1.json', 'w') as outfile:
+        data = [vars(attendee) for attendee in self.attendees]
+        with open('chap12/conferencedAttendees1.json', 'w') as outfile:
             json.dump(data, outfile, indent=4)
         
 
