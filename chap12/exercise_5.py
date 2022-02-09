@@ -1,6 +1,7 @@
 #Skunk Game
 from random import randrange
 
+
 class Dice:
     def __init__(self):
         self.dice = [0] * 2
@@ -55,8 +56,7 @@ class SkunkApp:
     def doRoll(self, player):
         if self.interface.rollAgain(player.getName()):
             self.dice.rollDice()
-            values = self.dice.values()
-            return values
+            return self.dice.values()
         else:
             player.deactivate()
             return [0, 0]
@@ -92,9 +92,7 @@ class Player:
         self.roundScores[book] = self.get_rScore()
     
     def resetRoundScores(self, books):
-        prevRoundScores = 0
-        for num in self.roundScores:
-            prevRoundScores += num
+        prevRoundScores = sum(self.roundScores)
         self.totScore -= prevRoundScores
         for i in range(books):
             self.roundScores[i] = 0
@@ -102,9 +100,7 @@ class Player:
 
     def inc_Score(self, score, books):
         self.totScore = self.totScore + score
-        prevRoundScores = 0
-        for num in self.roundScores[0:books]:
-            prevRoundScores += num
+        prevRoundScores = sum(self.roundScores[:books])
         self.rScore = self.totScore - prevRoundScores
 
 
@@ -144,7 +140,6 @@ class TextInterface:
     def newRound(self):
         self.round = self.round + 1
         return self.round
-        print()
         print("Entering Round {}".format(self.__whichRound()))
     
     def setDice(self, values):
@@ -177,7 +172,7 @@ class TextInterface:
 
     def rollAgain(self, name):
         ans = None
-        while ans == None:
+        while ans is None:
             ans = input("Do you wish to roll again {}? >> ".format(name))
             if ans[0] in "yY":
                 return True

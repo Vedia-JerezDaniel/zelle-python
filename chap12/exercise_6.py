@@ -10,8 +10,6 @@ class BridgeApp:
         self.teamNS = [self.players[0], self.players[2]]
         self.teamEW = [self.players[1], self.players[3]]
 
-
-
 class Player:
     def __init__(self):
         self.name
