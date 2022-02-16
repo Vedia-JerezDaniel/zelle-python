@@ -3,7 +3,7 @@
 
 class SpellCheck:
     def __init__(self, infile, dictionary):
-        self.f_to_check = infile
+        self.to_check = infile
         self.dict = dictionary
         self.infile = infile
         self.words = []
@@ -20,7 +20,6 @@ class SpellCheck:
             for word in f.readlines():
                 self.words.append(word.strip())
             
-
     #TODO: Process infile to create a list of words accounting for punctuation and capitalization
     def read_infile(self):
         with open(self.infile, 'r') as f:
@@ -32,27 +31,22 @@ class SpellCheck:
     def binary_search(self, arr, inword):
         #Base case: if empty array, inword not in dictionary
         if len(arr) == 0:
-            print(inword + " is not in dictionary.")
+            print(f'{inword} is not in dictionary.')
             return False
         else:
-            #Find middle of list, assign value to variable dictword 
             mid = len(arr) // 2
             dictword = arr[mid]
-            #if inword in dictionary, return True
             if inword == dictword:
                 return True
+            #Initiate variables for top and bottom of list 
+            left = arr[:mid]
+            right = arr[mid+1:]
+            if inword < dictword:
+                return self.binary_search(left, inword)
             else:
-                #Initiate variables for top and bottom of list 
-                left = arr[:mid]
-                right = arr[mid+1:]
-
-                if inword < dictword:
-                    return self.binary_search(left, inword)
-                else:
-                    return self.binary_search(right, inword)
+                return self.binary_search(right, inword)
                 
             
-def main():
-    SpellCheck('testdoc.txt', 'eng_dictionary.txt')
-main()
+
+SpellCheck('testdoc.txt', 'eng_dictionary.txt')
         

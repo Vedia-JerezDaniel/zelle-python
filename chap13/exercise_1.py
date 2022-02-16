@@ -1,11 +1,9 @@
 def fib(n):
     print("Computing fib({})".format(n))
-    if n < 3:
-        return 1
-    else:
-        print("Leaving fib({0}), returning {1}".format(n, fib(n-1) + fib(n-2)))
-        return fib(n-1) + fib(n-2)
+    if n < 3:    return 1
+    print("Leaving fib({0}), returning {1}".format(n, fib(n-2) + fib(n-1)))
+    return fib(n-2) + fib(n-1)
         
 
 
-fib(5)
+fib(4)

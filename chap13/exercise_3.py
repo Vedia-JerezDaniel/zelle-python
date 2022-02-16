@@ -1,10 +1,8 @@
-
 def palindrome(xStr, firstRun=True):
     if firstRun == True:
         for ch in '<}{ ][>.?/:;\|+=-_),(*&^%$#@!~`':
-            xStr.replace(ch, "")
-        xStr = xStr.lower()
-    
+            xStr = xStr.replace(ch, "").lower()
+    print(xStr)
     if len(xStr) < 2:
         return True
     elif xStr[0] == xStr[-1]:

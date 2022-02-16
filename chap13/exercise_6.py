@@ -9,7 +9,6 @@ class BaseConversion:
         digit = self.num % self.base
         self.list.append(digit)
         self.num = self.num // self.base
-
         if self.num < self.base:
             digit = self.num
             self.num = 0
@@ -18,16 +17,14 @@ class BaseConversion:
             self.makeList()
 
     def getDigits(self):
-        self.list.reverse()
+        # self.list.reverse()
         digits = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
         newlist = []
         for num in self.list:
             num = digits[num]
             newlist.append(num)
-        str1 = ' '.join(newlist)
-        return str1
+        return ' '.join(newlist)
 
-list = BaseConversion(153, 10)
+list = BaseConversion(15, 10)
 newlist = list.getDigits()
-
 print(newlist)

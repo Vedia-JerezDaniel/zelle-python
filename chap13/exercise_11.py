@@ -12,7 +12,6 @@ class WordTruer:
         self.twords = []
         self.dwords = []
         self.read_dict()
-        
         self.check_anagrams()
         self.summary()
 
@@ -25,41 +24,31 @@ class WordTruer:
         p = []
         if len(s) <= 1:
             p = [s]
-        
         else:
-            for i, let in enumerate(s):
-                for perm in self.permute(s[:i] + s[i+1:]):
-                    p += [let + perm] 
+            for i, l in enumerate(s):
+                for p in self.permute(s[:i] + s[i+1:]):
+                    p += [l + p] 
         return p
-    # TODO: Incorporate gaddag algorithm to speed up check anagrams 
-    def gaddag(self):
-        pass
-        
+    
     def check_anagrams(self):
-        for an in self.anagrams:
-            if self.binary_search(self.dwords, an):
-                self.twords.append(an)
+        for a in self.anagrams:
+            if self.binary_search(self.dwords, a):
+                self.twords.append(a)
 
     def binary_search(self, arr, inword):
-        #Base case: if empty array, inword not in dictionary
         if len(arr) == 0:
             return False
-        else:
-            #Find middle of list, assign value to variable dictword 
-            mid = len(arr) // 2
-            dictword = arr[mid]
-            #if inword in dictionary, return True
-            if inword == dictword:
-                return True
-            else:
-                #Initiate variables for top and bottom of list 
-                left = arr[:mid]
-                right = arr[mid+1:]
+        mid = len(arr) // 2
+        dictword = arr[mid]
+        if inword == dictword:
+            return True
+        left = arr[:mid]
+        right = arr[mid+1:]
 
-                if inword < dictword:
-                    return self.binary_search(left, inword)
-                else:
-                    return self.binary_search(right, inword)
+        if inword < dictword:
+            return self.binary_search(left, inword)
+        else:
+            return self.binary_search(right, inword)
 
     def summary(self):
         for word in self.twords:
