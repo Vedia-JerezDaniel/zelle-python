@@ -1,6 +1,10 @@
 # Python Institute
 
+___
+
 ## First course for PEPP
+
+***
 
 ## **Data types, variables, basic input-output operations, basic operators**
 
@@ -51,16 +55,23 @@ Look at the table below:
 
 
 
-### Writting programs
+### Writing programs
 
-Writing programs requires a systematic approach to problem solving and involves the following steps: 
+Writing programs requires a systematic approach to problem solving and involves the following steps: 
 
 1. Problem Analysis: Studying the problem to be solved.
+
 2. Program Specification: Deciding exactly what the program will do. 
+
 3. Design: Writing an algorithm in pseudocode. 
+
 4. Implementation: Translating the design into a programming language. 
-5.  Testing/Debugging: Finding and fixing errors in the program. 
+
+5. Testing/Debugging: Finding and fixing errors in the program. 
+
 6. Maintenance: Keeping the program up to date with evolving needs.
+
+   
 
 ## Module 3
 
@@ -76,6 +87,8 @@ It is now important to remember that:
 - an instruction or set of instructions executed inside the `while` loop is called the **loop's body**;
 - if the condition is `False` (equal to zero) as early as when it is tested for the first time, the body is not executed even once (note the analogy of not having to do anything if there is nothing to do);
 - the body should be able to change the condition's value, because if the condition is `True` at the beginning, the body might run continuously to infinity - notice that doing a thing usually decreases the number of things to do).
+
+
 
 ### For loops
 
@@ -132,7 +145,7 @@ A disjunction operator is the word `or`. It's a **binary operator with a lower p
 | `True`       | `False`      | `True`   |
 | `True`       | `True`       | `True`   |
 
-**Bitwise operations (**`&`**,** `|`**, and** `^`**)**
+**Bitwise operations (**`&`**,** `|`**, and** `^`**) OR  & XOR**
 
 | Argument `A` | Argument `B` | `A & B` | ` A | B` | `A ^ B` |
 | :----------- | :----------- | :------ | :------- | :------ |
@@ -194,42 +207,43 @@ will be used to illustrate the meaning of bitwise operators in Python. Analyze t
 
 `-16` (decimal from signed 2's complement) -- read more about the [Two's complement](https://en.wikipedia.org/wiki/Two's_complement) operation.
 
+
+
 ## Lists
 
-![image-20220105164818251](/home/dani/.config/Typora/typora-user-images/image-20220105164818251.png)
+<img src="C:\Users\canut\Desktop\Tableau CB\python.jpg" style="zoom:50%;" />
 
 In contrast, Python lists are dynamic. They can grow and shrink on demand. They are also heterogeneous. You can mix arbitrary data types in a single list. In a nutshell, Python lists are mutable sequences of arbitrary objects.
 
 Because lists are sequences, you know that all of the Python built-in sequence operations also apply to lists. To jog your memory, here’s a summary of those operations: 
 
+|    Meaning    |    Operator     |
+| :-----------: | :-------------: |
+| Concatenation |  [seq] + [seq]  |
+|  Repetition   | [seq] * number  |
+|   Indexing    |    [seq][][]    |
+|    Lenght     |   len([seq])    |
+|    Slicing    |     seq[:]      |
+|   Iteration   | for i in [seq]: |
+|  Membership   |  expr in [seq]  |
 
-
-| Meaning       | Operator        |
-| ------------- | --------------- |
-| Concatenation | [seq] + [seq]   |
-| Repetition    | [seq] * number  |
-| Indexing      | [seq][][]       |
-| Lenght        | len([seq])      |
-| Slicing       | seq[:]          |
-| Iteration     | for i in [seq]: |
-| Membership    | expr in [seq]   |
-
-```
+```python
 # Remove
 hat_list.pop(-1)
 del hat_list[2]
+
 # Insert
 list.append(value)
 list.insert(location, value)
 ```
 
-###  List in lists (ist comprehension )
+###  List in lists (list comprehension )
 
 Let us show you some other **list comprehension examples**:
 
 Example #1:
 
-```
+```python
 squares = [x ** 2 for x in range(10)] 
 ```
 
@@ -237,7 +251,7 @@ The snippet produces a ten-element list filled with squares of ten integer numbe
 
 Example #2:
 
-```
+```python
 twos = [2 ** i for i in range(8)] 
 ```
 
@@ -245,19 +259,23 @@ The snippet creates an eight-element array containing the first eight powers of 
 
 Example #3:
 
-```
+```python
 odds = [x for x in squares if x % 2 != 0 ] 
 ```
 
 #### Three-dimensional arrays
 
-```
+```python
 rooms = [[[False for r in range(20)] 
          for f in range(15)] 
          for t in range(3)]
 
 np.shape(rooms)
+
+>> (3, 15, 20)
 ```
+
+
 
 *# Imagine a hotel. It's a huge hotel consisting of three buildings, 15 floors each. There are 20 rooms on each floor. For this, you need an array which can collect and process information on the occupied/free rooms.*
 
@@ -265,7 +283,7 @@ np.shape(rooms)
 
 *# The vacancy variable contains 0 if all the rooms are occupied, or the number of available rooms otherwise.*
 
-```
+```python
 vacancy = 0
 for room_number in range(20):
     if not rooms[2][14][room_number]:
@@ -274,15 +292,21 @@ for room_number in range(20):
 
 #### Summary for list
 
--  A list is a sequence of items stored as a single object. 
--  Items in a list can be accessed by indexing, and sublists can be accessed by slicing. 
+- A list is a sequence of items stored as a single object. 
+
+- Items in a list can be accessed by indexing, and sublists can be accessed by slicing. 
+
 - Lists are mutable; individual items or entire slices can be replaced through assignment statetments. 
+
 - Lists support a number of convenient and frequently used methods. 
+
 - Lists will grow and shrink as needed.
+
+  
 
 ## Tupples and Dictionaries
 
-A **sequence type is a type of data in Python which is able to store more than one value (or less than one, as a sequence may be empty), and these values can be sequentially (hence the name) browsed**, element by element.
+A _**sequence type is a type of data in Python which is able to store more than one value (or less than one, as a sequence may be empty), and these values can be sequentially (hence the name) browsed**_, element by element.
 
 As the `for` loop is a tool especially designed to iterate through sequences, we can express the definition as: **a sequence is data which can be scanned by the `for` loop**.
 
@@ -306,7 +330,7 @@ There are two tuples, both containing **four elements**.
 
 Let's print them:
 
-```
+```python
 tuple_1 = (1, 2, 4, 8) 
 tuple_2 = (1., .5, .25, .125)
 print(tuple_1)
@@ -336,7 +360,7 @@ This means that a dictionary is a set of **key-value** pairs. Note:
 - the `len()` function works for dictionaries, too - it returns the numbers of key-value elements in the dictionary;
 - a dictionary is a **one-way tool** - if you have an English-French dictionary, you can look for French equivalents of English terms, but not vice versa.
 
-```
+```python
 dictionary = {"cat": "chat", "dog": "chien", "horse": "cheval"}
 words = ['cat', 'lion', 'horse']
 
@@ -360,7 +384,7 @@ Another way is based on using a dictionary's method named `items()`. The method 
 
 This is how it works:
 
-```
+```python
 dictionary = {"cat": "chat", "dog": "chien", "horse": "cheval"}
 for english, french in dictionary.items():
 	print(english, "->", french) 
@@ -382,12 +406,13 @@ Assigning a new value to an existing key is simple - as dictionaries are fully *
 
 We're going to replace the value `"chat"` with `"minou"`, which is not very accurate, but it will work well with our example
 
-```
+```python
 dictionary = {"cat": "chat", "dog": "chien", "horse": "cheval"} 
-dictionary['cat'] = 'minou' print(dictionary)
+dictionary['cat'] = 'minou' 
+print(dictionary)
 ```
 
-###### Adding a new key
+##### Adding a new key
 
 Adding a new key-value pair to a dictionary is as simple as changing a value - you only have to assign a value to a new, **previously non-existent key**.
 
@@ -395,23 +420,25 @@ Note: this is very different behavior compared to lists, which don't allow you t
 
 Let's add a new pair of words to the dictionary - a bit weird, but still valid:
 
-```
+```python
 dictionary = {"cat": "chat", "dog": "chien", "horse": "cheval"} 
-dictionary['swan'] = 'cygne' print(dictionary)
+dictionary['swan'] = 'cygne'
+print(dictionary)
 ```
 
-**Update()**
+###### **Update()**
 
-```
+```python
 dictionary = {"cat": "chat", "dog": "chien", "horse": "cheval"}
-
 dictionary.update({"duck": "canard"})
 print(dictionary)
 ```
 
+##### Deleting values
+
 **del()**
 
-```
+```python
 This is done with the del instruction.
 
 dictionary = {"cat": "chat", "dog": "chien", "horse": "cheval"}
@@ -433,11 +460,11 @@ print(dictionary)
 
 ### Summary
 
-\1. **Tuples** are ordered and unchangeable (immutable) collections of data. They can be thought of as immutable lists. They are written in round brackets:
+1. **Tuples** are ordered and unchangeable (immutable) collections of data. They can be thought of as immutable lists. They are written in round brackets:
 
-\4. You can access tuple elements by indexing them:
+2. You can access tuple elements by indexing them:
 
-```
+```python
 my_tuple = (1, 2.0, "string", [3, 4], (5, ), True)
 print(my_tuple[3])  
 # outputs: [3, 4] 
@@ -454,12 +481,11 @@ del my_tuple
 
  If you want to change the value associated with a specific key, you can do so by referring to the item's key name in the following way:
 
-```
+```python
 pol_eng_dictionary = {
     "zamek": "castle",
     "woda": "water",
-    "gleba": "soil"
-    }
+    "gleba": "soil"}
 
 pol_eng_dictionary["zamek"] = "lock"
 item = pol_eng_dictionary["zamek"]    
@@ -468,7 +494,7 @@ print(item)  # outputs: lock
 
 You can also insert an item to a dictionary by using the `update()` method, and remove the last element by using the `popitem()` method, e.g.:
 
-```
+```python
 pol_eng_dictionary = {"kwiat": "flower"}
 
 pol_eng_dictionary.update({"gleba": "soil"})
@@ -492,14 +518,6 @@ print(len(pol_eng_dictionary))    # outputs: 0
 
 del pol_eng_dictionary    # removes the dictionary
 ```
-
-
-
-
-
-
-
-
 
 
 
@@ -556,8 +574,6 @@ s.ljust(width) Like center, but s is left-justified
 s.lower() Copy of s in all lowercase characters 									
 s.lstrip() Copy of s with leading white space removed 									
 s.replace(oldsub,newsub) Replace all occurrences of oldsub in s with newsub 
-
-
 
 #### Format
 
@@ -668,14 +684,6 @@ So, we could say that these two blocks work like this:
 
 
 
-
-
-
-
-
-
-
-
 ## Summary Zelle’s book
 
 - A function is a kind of subprogram. Programmers use functions to reduce code duplication and to help structure or modularize programs. Once a function is defined, it may be calledmultiple times from many different places in a program. Parameters allow functions to have changeable parts. The parameters appearing in the function definition are called formal parameters, and the expressions appearing in a function call are known as actual parameters. 
@@ -726,8 +734,6 @@ The information is stored inside the object in instance variables. The operation
 For example, to take a now familiar example, a Circle object will have instance variables such as center, which remembers the center point of the circle, and radius, which stores the length of the circle’s radius, called also parameters.
 
 Recall that every object is said to be an instance of some class. The class of the object determines what attributes the object will have. Basically a class is a description of what its instances will know and do. New objects are created from a class by invoking a constructor. You can think of the class itself as a sort of factory for stamping out new instances.
-
-
 
 ```python
 class MSDie:  # also caled constructor
