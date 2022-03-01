@@ -235,8 +235,6 @@ del list_1[0]
 del list_2[0]
 
 print(list_3)
-
-
 # List in lists
 
 board = []
@@ -267,8 +265,6 @@ for day in temps:
 print("The highest temperature was:", highest)
 
 # only days in temps
-
-
 hot_days = 0
 
 for day in temps:
@@ -276,7 +272,6 @@ for day in temps:
         hot_days += 1
 
 print(hot_days, "days were hot.")
-
 
 # Three-dimensional arrays
 
@@ -308,9 +303,6 @@ for i in range(len(my)):
 print(my[2][0])
 my
 
-
-
-
 my.insert(0,1)
 del my[1]
 v = my[-1:-2]
@@ -319,9 +311,7 @@ print(my[-3:-2])
 
 v = my
 
-
 del v[1:2]
-
 
 my[0], my[2] = my[2] , my[0]
 
@@ -554,4 +544,18 @@ while True:
         print("Wrong value or No division by zero rule broken.")
     except:
         print("Sorry, something went wrong...")
+
+
+bin(4 ^ 1)
+x=15
+y = 16
+bin(y<<1) 
+
+import numpy as np
+rooms = [[[False for r in range(20)] 
+         for f in range(15)] 
+         for t in range(3)]
+
+np.shape(rooms)
+
 
