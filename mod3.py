@@ -559,3 +559,260 @@ rooms = [[[False for r in range(20)]
 np.shape(rooms)
 
 
+def my_function():
+    global var
+    var = 2
+    print("Do I know that variable?", var)
+var = 1
+my_function()
+print(var)
+
+
+import math
+def main():
+    print("This program finds the real solutions to a quadratic\n")
+    try:
+        a, b, c = eval(input("Please enter the coefficients (a, b, c): "))
+        discRoot = math.sqrt(b * b - 4 * a * c)
+        root1 = (-b + discRoot) / (2 * a)
+        root2 = (-b - discRoot) / (2 * a)
+        print("\nThe solutions are:", root1, root2 )
+    except ValueError as excObj:
+        if str(excObj) == "math domain error":
+            print("No Real Roots")
+        else:
+            print("You didn’t give me the right number of coefficients.")
+    except NameError:
+        print("\nYou didn’t enter three numbers.")
+    except TypeError:
+        print("\nYour inputs were not all numbers.")
+    except SyntaxError:
+        print("\nYour input was not in the correct form. Missing comma?")
+    except:
+        print("\nSomething went wrong, sorry!")
+main()
+
+
+my = ['mary', 'had' ,'a', 'little', 'lamb']
+
+def main(my):
+    del my[3]
+    my[3] = 'range'
+    
+    
+print(main(my))
+
+def main(c):
+    c += 1
+    return c
+
+c =2
+c = main(c+1)
+print(c)
+    
+def main():
+    print(v + 1, end='')
+    
+v = 1
+main()
+print(v)
+
+def fun(ip=2,ou=3):
+    return ip*ou
+
+print(fun(ou= 2))
+
+dic = {'one': 'two', 'three': 'one', 'two': 'three'}
+v = dic['three']
+
+for i in range(len(dic)):
+    v = dic[v]
+
+print(v)
+
+tup = (1,2,4,8)
+tup = tup[1:-1]
+tup = tup[0]
+print(tup)
+
+ x= 1//5+1/5
+
+i = 0
+while i < i +2:
+    i += 1
+    print('#')
+else: print('#')
+
+
+def fun(x,y):
+    if x == y:
+        return x
+    else:
+        return fun(x,y-1)
+
+print(fun(0,3))
+    
+print(fun(fun(2))+1)
+
+
+def fun1(a):
+    return None
+
+def fun2(a):
+    return fun1(a)*fun1(a)
+
+print(fun2(2))
+
+
+tup = (1,2,4,8)
+tup = tup[-2:-1]
+tup = tup[-1]
+print(tup)
+
+
+def fun(x,y,z):
+    return x+2*y+3*z
+
+print(fun(0,z=1, y=3))
+
+
+def fun(a):
+    global b
+    b = a*a
+    return b
+
+fun(2)
+print(b)
+
+
+dic ={}
+my = ['a','b','c','d']
+
+for i in range(len(my)-1):
+    dic[my[i]] = (my[i], )
+    
+for i in sorted(dic.keys()):
+    k = dic[i]
+    print(k[0])
+    
+def test(x=0):
+    return x
+    
+
+try:
+    val = input('enter a value for')
+    print(int(val)/len(val))
+except ValueError:
+    print('basd indexº')
+except (ZeroDivisionError):
+    print('very bab ')
+except TypeError:
+    print('very very bab ')
+except:
+    print('booo')
+    
+    
+try:
+    print(5/0)
+    break
+except:
+    print('sorry to')
+except (ValueError, ZeroDivisionError):
+    print('too bas')
+    
+print(Hello quadratic)
+
+nu = [1,2,3]
+val = nu
+nu.append(4)
+del val[:]
+
+print(4**(1/))
+
+li = [[x for x in range(3)] for y in range(32)]
+for r in range(3):
+    for c in range(3):
+        if li[r][c] %2 != 0:
+            print('#')
+            
+x =1
+y=2
+
+x not == y
+
+x,y,z =x,x,y
+z,y,z =x,y,z
+
+print(z,y,z)
+
+1//2
+
+li = [i for i in range(-1,-2)]
+
+z = 0
+y = 10
+x = y<z and z>y or y>z and z<y
+
+def fu(a,b,c=0):
+    return b*a
+
+print(fu(2,3))
+
+dd = {'1':'0','0':'1'}
+for i in dd.vals():
+    print(i, end='')
+    
+print('a','b','c', sep='sep')   
+
+x = 3%2
+x = 3%2
+y = 2%x
+print(x, end='')
+
+li = [x * x for x in range(5)]
+
+def test(li):
+    del li[li[2]]
+    return li
+
+print(test(li))
+
+
+def fin(x):
+    if x % 2 == 0:
+        return 1
+    else:
+        return 2
+print(fin(fin(2)))
+
+foo = (1,2,3)
+foo.index(0)
+
+foo[1] = foo[0]+foo[1]
+
+x='3'
+y='6'
+x+y
+
+
+li = [1,2]
+for i in range(2):
+    li.insert(-1,li[i])
+print(li)
+
+
+dc = {}
+dc['1'] = (1,2)
+dc['2'] = (2,1)
+
+for i in dc.keys():
+    print(dc[i][1], end='')
+    
+    
+a = 1
+b= 0
+a= a^b
+b= a^b
+a= a^b
+
+print(a, b)
