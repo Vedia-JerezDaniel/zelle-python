@@ -78,3 +78,59 @@ john.name
 john.birth_date
 john.position
 
+# Object Creation With .__new__()
+        """Note that you’re using *args and **kwargs to make the method more flexible and maintainable by accepting any number of arguments. You should always define .__new__() with *args and **kwargs, unless you have a good reason to follow a different pattern.
+        """
+
+class Distance(float):
+    def __new__(cls, value, unit):
+        instance = super().__new__(cls, value)
+        instance.unit = unit
+        return instance
+
+in_miles = Distance(42.0, "Miles")
+in_miles
+
+in_miles.unit
+in_miles + 42.0
+dir(in_miles)
+
+# Returning Instances of a Different Class
+
+from random import choice
+
+class Pet:
+    def __new__(cls):
+        other = choice([Dog, Cat, Reptile, Cow ])
+        instance = super().__new__(other)
+        print(f"I'm a {type(instance).__name__}!")
+        return instance
+
+    def __init__(self):
+        print("Never runs!")
+
+class Dog:
+    def communicate(self):
+        print("woof! woof!")
+
+class Cat:
+    def communicate(self):
+        print("meow! meow!")
+
+class Reptile:
+    def communicate(self):
+        print("hiss! hiss!")
+        
+class Cow:
+    def communicate(self):
+        print("muu! muu!")
+        
+pet = Pet()
+pet.communicate()
+
+isinstance(pet, Pet)
+isinstance(pet, Reptile)
+
+another_pet = Pet()
+another_pet.communicate()
+
